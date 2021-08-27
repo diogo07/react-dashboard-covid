@@ -100,7 +100,7 @@ class HomePage extends Component {
 
   showLineChart = () => {
 
-    return <Grid item={true} xs={12} sm={12} md={12}>
+    return <Grid item={true} xs={12} sm={12} md={6}>
       <Card>
         <CardHeader
           action={
@@ -143,7 +143,7 @@ class HomePage extends Component {
 
   showBarChart = () => {
 
-    return <Grid item={true} xs={12} sm={12} md={12}>
+    return <Grid item={true} xs={12} sm={12} md={6}>
       <Card>
         <CardHeader
           action={
