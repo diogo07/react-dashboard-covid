@@ -44,8 +44,8 @@ class HomePage extends Component {
   async componentDidMount() {
     this.props.fetchLoading(true);
     let data = await this.findCasos();
-    let casos = data[this.state.filterOptionLineChart].map((it) => { return { name: it._id, casos: it.casosAcumulado } })
-    let obitos = data[this.state.filterOptionLineChart].map((it) => { return { name: it._id, obitos: it.obitosAcumulado } })
+    let casos = data[this.state.filterOptionLineChart]?.map((it) => { return { name: it._id, casos: it.casosAcumulado } })
+    let obitos = data[this.state.filterOptionLineChart]?.map((it) => { return { name: it._id, obitos: it.obitosAcumulado } })
     this.setState({ dataLineChart: casos, dataBarChart: casos, dataAreaChart: obitos });
     this.props.fetchLoading(false);
   }
@@ -63,7 +63,7 @@ class HomePage extends Component {
     if (event.target.id) {
       this.setState({ filterOptionLineChart: event.target.id, loadingLineChart: true });
       let data = await this.findCasos();
-      let casos = data[this.state.filterOptionLineChart].map((it) => { return { name: it._id, casos: it.casosAcumulado } })
+      let casos = data[this.state.filterOptionLineChart]?.map((it) => { return { name: it._id, casos: it.casosAcumulado } })
       this.setState({ loadingLineChart: false, dataLineChart: casos });
     }
   }
@@ -77,7 +77,7 @@ class HomePage extends Component {
     if (event.target.id) {
       this.setState({ filterOptionBarChart: event.target.id, loadingBarChart: true });
       let data = await this.findCasos();
-      let casos = data[this.state.filterOptionBarChart].map((it) => { return { name: it._id, casos: it.casosAcumulado } })
+      let casos = data[this.state.filterOptionBarChart]?.map((it) => { return { name: it._id, casos: it.casosAcumulado } })
       this.setState({ loadingBarChart: false, dataBarChart: casos });
     }
   }
